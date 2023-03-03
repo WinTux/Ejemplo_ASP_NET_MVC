@@ -1,0 +1,48 @@
+﻿@model Ejemplo_ASP_NET_MVC.ViewModels.CuentaViewModel
+<div class="container-lg">
+    <!--agergar título, si se quiere-->
+    <div class="row justify-content-center my-5">
+        <div class="col-lg-6">
+            <form asp-controller="Cuenta" asp-action="Registrar" method="post">
+                <table>
+                    <tr>
+                        <td>Usuario</td>
+                        <td>
+                            <input asp-for="Cuenta.Usuario">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Contraseña</td>
+                        <td>
+                            <input type="password" asp-for="Cuenta.Password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Descripción</td>
+                        <td>
+                            <textarea cols="30" rows="5" asp-for="Cuenta.Descripcion"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Disponible</td>
+                        <td>
+                            <input type="checkbox" asp-for="Cuenta.Disponible">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lenguajes</td>
+                        <td>
+                            @for (var i = 0; i < Model.Lenguajes.Count; i++)
+                            {
+                                <input type="hidden" asp-for="@Model.Lenguajes[i].Id">
+                                <input type="hidden" asp-for="@Model.Lenguajes[i].Nombre">
+                                <input type="checkbox" asp-for="@Model.Lenguajes[i].Tickeado">
+                                <label asp-for="@Model.Lenguajes[i].Id">@Model.Lenguajes[i].Nombre</label>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
