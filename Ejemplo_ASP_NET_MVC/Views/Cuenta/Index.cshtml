@@ -38,7 +38,28 @@
                                 <input type="hidden" asp-for="@Model.Lenguajes[i].Nombre">
                                 <input type="checkbox" asp-for="@Model.Lenguajes[i].Tickeado">
                                 <label asp-for="@Model.Lenguajes[i].Id">@Model.Lenguajes[i].Nombre</label>
+                                <br>
                             }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Genero</td>
+                        <td>
+                            <input type="radio" value="F" asp-for="Cuenta.Genero"> Femenino
+                            <br>
+                            <input type="radio" value="M" asp-for="Cuenta.Genero"> Masculino
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cargo</td>
+                        <td>
+                            <select asp-for="Cuenta.Cargo" asp-items="@Model.Cargos"></select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="align-content-center">
+                            <input type="hidden" asp-for="Cuenta.Id">
+                            <input class="btn btn-primary" type="submit" value="Registrar">
                         </td>
                     </tr>
                 </table>

@@ -44,5 +44,17 @@ namespace Ejemplo_ASP_NET_MVC.Controllers
             cuentaVM.Cargos = new Microsoft.AspNetCore.Mvc.Rendering.SelectList(cargos, "Id","Nombre");
             return View("Index", cuentaVM);
         }
+
+        [HttpPost]
+        public IActionResult Registrar(CuentaViewModel cuentaVMDesdeForm, List<Lenguaje> Lenguajes)
+        {
+            cuentaVMDesdeForm.Cuenta.Lenguajes = new List<string>();
+            foreach (var lenguaje in Lenguajes) {
+                if (lenguaje.Tickeado)
+                    cuentaVMDesdeForm.Cuenta.Lenguajes.Add(lenguaje.Id);
+            }
+            ViewBag.cuenta = cuentaVMDesdeForm.Cuenta;
+            return View("Exito");
+        }
     }
 }
