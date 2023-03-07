@@ -1,0 +1,29 @@
+﻿@model Ejemplo_ASP_NET_MVC.Models.Producto
+<form asp-controller="Subir" asp-action="Guardar" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>ID</td>
+            <td><input asp-for="Id"></td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td><input asp-for="Nombre"></td>
+        </tr>
+        <tr>
+            <td>Precio</td>
+            <td><input asp-for="Precio"></td>
+        </tr>
+        <tr>
+            <td>Cantidad</td>
+            <td><input asp-for="Cantidad"></td>
+        </tr>
+        <tr>
+            <td>Foto</td>
+            <td><input type="file" name="foto"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Registrar"></td>
+        </tr>
+    </table>
+</form>
